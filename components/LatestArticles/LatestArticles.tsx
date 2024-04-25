@@ -57,20 +57,14 @@ export default function LatestArticles() {
               </article>
             </article>
             <div>
-              <Image
-                className="w-full object-cover aspect-[9/6]"
-                src={latestArticle.content[0].img}
-                alt={latestArticle.imgAlt}
-                width={1488}
-                height={992}
-                priority
-              />
             </div>
           </article>
         </div>
-
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 xl:gap-24">
-          <div className="lg:w-3/4">
+          <div className="flex-1 lg:w-2/4">
+            <Sidebar />
+          </div>
+          <div className="flex-2 lg:w-4/4">
             {remainingArticles.map((article, index) => (
               <article key={article.title}>
                 <article className="grid md:grid-cols-[0fr_1fr] gap-6 sm:gap-12">
@@ -120,7 +114,7 @@ export default function LatestArticles() {
               </article>
             ))}
           </div>
-          <div className="lg:w-1/4">
+          <div className="flex-1 lg:w-2/4">
             <Sidebar />
           </div>
         </div>
