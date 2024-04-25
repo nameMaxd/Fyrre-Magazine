@@ -6,9 +6,15 @@ import { Separator } from "@radix-ui/react-separator";
 import Link from "next/link";
 import Loading from "./loading";
 import Image from "next/image";
+import rasp from "@/app/rasp/page";
+import { Payment, columns } from "@/app/rasp/columns"
+import { DataTable } from "@/app/rasp/data-table"
+import GetData from "@/app/rasp/page";
+ 
 
 export default function LatestArticles() {
   const { data } = useArticleContext();
+  
 
   if (data.length > 0 && data[0].articles.length > 0) {
     const allArticles = data[0].articles.sort((a, b) => {
@@ -88,6 +94,7 @@ export default function LatestArticles() {
                       <p>{article.description}</p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 justify-between sm:items-center">
+                    {rasp()}
                       <div className="flex flex-col sm:flex-row gap-2 sm:gap-6">
                         <span className="flex flex-wrap">
                           <p className="font-semibold pr-2">Text</p>

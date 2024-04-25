@@ -8,6 +8,23 @@ import NewsTicker from "@/components/NewsTicker/NewsTicker";
 import PageTitle from "@/components/PageTitle";
 import Subheading from "@/components/Subheading";
 import { Suspense } from "react";
+import rasp from "@/app/rasp/page";
+import { Payment, columns } from "@/app/rasp/columns"
+import { DataTable } from "@/app/rasp/data-table"
+
+ 
+async function getData(): Promise<Payment[]> {
+  // Fetch data from your API here.
+  return [
+    {
+      id: "728ed52f",
+      amount: 100,
+      status: "pending",
+      email: "m@example.com",
+    },
+    // ...
+  ]
+}
 
 export const metadata = {
   title: "Fyrre Magazine | Art & Life | Home",
@@ -28,7 +45,7 @@ export default function Home() {
       <Suspense fallback={<NewsLoading />}>
         <NewsTicker />
       </Suspense>
-
+      {rasp()}
       <LatestArticles />
 
       <Subheading
